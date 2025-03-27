@@ -17,6 +17,7 @@ function calcButtonClick(event){
 
     switch(action){
         case 'number' :
+            case 'decimal':
             storeNumber(value);
             break;
         case 'clear' :
@@ -67,6 +68,16 @@ function startFromResult(value){
 
 function isLastCharOperator(){
     return isNaN(parseInt(expression.slice(-1)));
+}
+
+function submit(){
+    result = eval(expression);
+
+    result = parseFloat(result.toFixed(8));
+
+    updateDisplay(expression, result);
+
+    expression = '';
 }
 
 function updateDisplay(expression, result){
